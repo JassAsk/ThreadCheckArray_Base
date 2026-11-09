@@ -1,13 +1,6 @@
 import java.util.Scanner;
-import java.util.ArrayList;
-/** doc הסבר על כל מחלקה, כל שדה במחלקה וכל מתודה במחלקה **/
+/** doc הסב ר על כל מחלקה, כל שדה במחלקה וכל מתודה במחלקה **/
 public class TestThreadCheckArray {
-
-    /**
-     * Reads input, starts the search threads, and prints the matching result.
-     *
-     * @param args command-line arguments (not used)
-     */
     public static void main(String[] args) {
         try (Scanner input = new Scanner(System.in)) {
             System.out.println("Enter array size");
@@ -38,33 +31,27 @@ public class TestThreadCheckArray {
                 System.out.println("Sorry");
                 return;
             }
-            System.out.println("Solution for b : " + sd.getB() + ",n = " + sd.getArray().size());
+            System.out.println("Solution for b : " + sd.getB() + ",n = " + sd.getArray().length);
             System.out.print("I:    ");
-            for (int index = 0; index < sd.getArray().size(); index++) {
+            for(int index = 0; index < sd.getArray().length ; index++)
                 System.out.print(index + "    ");
-            }
             System.out.println();
             System.out.print("A:    ");
-            for (int value : sd.getArray()) {
-                System.out.print(value);
+            for (int index : sd.getArray()) {
+                System.out.print(index);
                 int counter = 5;
-                int digits = value;
-                do {
-                    digits /= 10;
+                while (true) {
+                    index = index / 10;
                     counter--;
-                } while (digits != 0);
-                for (int i = 0; i < counter; i++) {
-                    System.out.print(" ");
+                    if (index == 0) break;
                 }
+                for (int i = 0; i < counter; i++) System.out.print(" ");
             }
             System.out.println();
             System.out.print("C:    ");
             for (boolean index : sd.getWinArray()) {
-                if (index) {
-                    System.out.print("1    ");
-                } else {
-                    System.out.print("0    ");
-                }
+                if (index) System.out.print("1    ");
+                else System.out.print("0    ");
             }
         }
     }
