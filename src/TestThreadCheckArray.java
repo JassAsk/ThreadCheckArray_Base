@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
+/**tets
  * Reads an integer collection and target value, then searches for a subset
  * whose sum matches the target using two worker threads.
  */
