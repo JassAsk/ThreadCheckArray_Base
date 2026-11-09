@@ -1,5 +1,5 @@
 import java.util.Scanner;
-/** doc הסבר על כל מחלקה, כל שדה במחלקה וכל מתודה במחלקה **/
+/** doc הסב ר על כל מחלקה, כל שדה במחלקה וכל מתודה במחלקה **/
 public class TestThreadCheckArray {
     public static void main(String[] args) {
         try (Scanner input = new Scanner(System.in)) {
