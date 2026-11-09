@@ -1,6 +1,17 @@
+import java.util.ArrayList;
 import java.util.Scanner;
-/** doc הסב ר על כל מחלקה, כל שדה במחלקה וכל מתודה במחלקה **/
+
+/**tets
+ * Reads an integer collection and target value, then searches for a subset
+ * whose sum matches the target using two worker threads.
+ */
 public class TestThreadCheckArray {
+
+    /**
+     * Reads input, starts the search threads, and prints the matching result.
+     *
+     * @param args command-line arguments (not used)
+     */
     public static void main(String[] args) {
         try (Scanner input = new Scanner(System.in)) {
             System.out.println("Enter array size");
@@ -31,27 +42,33 @@ public class TestThreadCheckArray {
                 System.out.println("Sorry");
                 return;
             }
-            System.out.println("Solution for b : " + sd.getB() + ",n = " + sd.getArray().length);
+            System.out.println("Solution for b : " + sd.getB() + ",n = " + sd.getArray().size());
             System.out.print("I:    ");
-            for(int index = 0; index < sd.getArray().length ; index++)
+            for (int index = 0; index < sd.getArray().size(); index++) {
                 System.out.print(index + "    ");
+            }
             System.out.println();
             System.out.print("A:    ");
-            for (int index : sd.getArray()) {
-                System.out.print(index);
+            for (int value : sd.getArray()) {
+                System.out.print(value);
                 int counter = 5;
-                while (true) {
-                    index = index / 10;
+                int digits = value;
+                do {
+                    digits /= 10;
                     counter--;
-                    if (index == 0) break;
+                } while (digits != 0);
+                for (int i = 0; i < counter; i++) {
+                    System.out.print(" ");
                 }
-                for (int i = 0; i < counter; i++) System.out.print(" ");
             }
             System.out.println();
             System.out.print("C:    ");
             for (boolean index : sd.getWinArray()) {
-                if (index) System.out.print("1    ");
-                else System.out.print("0    ");
+                if (index) {
+                    System.out.print("1    ");
+                } else {
+                    System.out.print("0    ");
+                }
             }
         }
     }
